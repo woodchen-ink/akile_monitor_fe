@@ -1,5 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
-import { writeFileSync } from 'node:fs'
+import { writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import path from 'path';
 
 import { defineConfig } from 'vite'
@@ -30,6 +30,11 @@ export default defineConfig({
         });
       },
       closeBundle () {
+        // 确保 dist 目录存在
+        const distDir = path.resolve(__dirname, 'dist');
+        if (!existsSync(distDir)) {
+          mkdirSync(distDir, { recursive: true });
+        }
         // static `config.json` for prod
         const configPath = path.resolve(__dirname, 'dist/config.json');
         writeFileSync(configPath, JSON.stringify(generateConfig(), null, 2));
