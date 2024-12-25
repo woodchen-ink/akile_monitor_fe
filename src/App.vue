@@ -312,7 +312,7 @@ provide('handleChangeType', handleChangeType)
   <div class="max-container">
     <div class="header">
       <a class="logo" href="#">
-        <img src="./logo.svg" class="arco-icon" alt="logo" />
+        <img src="@/assets/logo.svg" class="arco-icon" alt="logo" />
         <span>CZL Svr</span>
         <small style="font-weight: 400;opacity: .8"> ｜ CZL服务器监控</small>
       </a>
